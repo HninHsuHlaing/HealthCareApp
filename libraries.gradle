@@ -1,0 +1,53 @@
+ext{
+    constraintVersion = "1.1.3"
+    junitVersion = "4.12"
+    junitTestVersion  ="1.1.1"
+    espressoVersion = "3.2.0"
+    materialVersion = "1.0.0"
+    cardViewVersion = "1.0.0"
+    viewPager2Version = "1.0.0"
+    exoplayerVersion = "2.11.1"
+    exoplayerCoreVersion ="2.11.1"
+    exoplayerDashVersion = "2.11.1"
+    exoplayerUiVersionn = "2.11.1"
+    retrrofitVersion = "2.6.1"
+    retrofitConverterVersion ="2.5.0"
+    retrofitAdapterVersion = "2.6.1"
+    rxAndroidVersion = "2.0.1"
+    rxjavaVersion ="2.0.3"
+    roomRxJavaVersion = "2.1.0-alpha06"
+    roomCompilerVersion  ="1.0.0"
+    purchaseVersion = "2.3.1"
+    jsonVersion ="2.8.6"
+    workmanagerVersion = "2.3.1"
+    smartiestVersion = "1.3.9-appcompat"
+
+
+
+    libraries = [
+
+            constraintLayout : "androidx.constraintlayout:constraintlayout:$constraintVersion",
+            junit: "junit:junit:$junitVersion",
+            junitTest: "androidx.test.ext:junit:$junitTestVersion",
+            espresso: "androidx.test.espresso:espresso-core:$espressoVersion",
+            material:"com.google.android.material:material:$materialVersion",
+            cardView: "androidx.cardview:cardview:$cardViewVersion",
+            viewPager2 :"androidx.viewpager2:viewpager2:$viewPager2Version",
+            exoplayer:"com.google.android.exoplayer:exoplayer:$exoplayerVersion",
+            exoplayerCore :"com.google.android.exoplayer:exoplayer-core:$exoplayerCoreVersion",
+            exoplayerDash :"com.google.android.exoplayer:exoplayer-dash:$exoplayerDashVersion",
+            exoplayerUi :"com.google.android.exoplayer:exoplayer-ui:$exoplayerUiVersionn",
+            retrofit : "com.squareup.retrofit2:retrofit:$retrrofitVersion",
+            retrofitJsonConverter :"com.squareup.retrofit2:converter-gson:$retrofitConverterVersion",
+            retrofitAdapter :"com.squareup.retrofit2:adapter-rxjava2:$retrofitAdapterVersion",
+            rxAndroid :"io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            rxJava :"io.reactivex.rxjava2:rxjava:$rxjavaVersion",
+            roomRxjava : "androidx.room:room-rxjava2:$roomRxJavaVersion",
+            roomCompiler :"android.arch.persistence.room:compiler:$roomCompilerVersion",
+            purchase:"com.revenuecat.purchases:purchases:$purchaseVersion",
+            json : "com.google.code.gson:gson:$jsonVersion",
+            workmanager: "androidx.work:work-runtime:$workmanagerVersion",
+            smartiest : "com.github.smarteist:autoimageslider:$smartiestVersion"
+
+    ]
+}

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "463511539025",
+    "firebase_url": "https://health-care-app-3aea4.firebaseio.com",
+    "project_id": "health-care-app-3aea4",
+    "storage_bucket": "health-care-app-3aea4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463511539025:android:98a159850020813c94d770",
+        "android_client_info": {
+          "package_name": "com.padcx.healthcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463511539025-hfjg7q6urq76behjo4fq90ku6fbqj9s3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2fev3PxanZNIj1jeheN9wokiSABlPm00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "463511539025-hfjg7q6urq76behjo4fq90ku6fbqj9s3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
