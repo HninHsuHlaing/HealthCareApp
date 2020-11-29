@@ -1,0 +1,203 @@
+{
+  "specialities" : {
+    "dentist":{
+      "id" : "sp0001",
+      "name" : "Dental",
+      "photo" : "",
+      "subCollection": {
+        "specialities/dentist/special_questions": [
+          {
+            "id": "sq0001",
+            "sq_question": "Special Question 1 ?"
+          },
+          {
+            "id": "sq0002",
+            "sq_question": "Special Question 2 ?"
+          }
+        ],
+        "specialities/dentist/medicines": [
+          {
+            "id": "m0001",
+            "name": "Medicine One",
+            "photo": "",
+            "price":1000
+          },
+          {
+            "id": "m0002",
+            "name": "Medicine B",
+            "photo": "",
+            "price" :1000
+          }
+        ]
+
+      }
+    }
+  },
+  "doctors" : [
+    {
+      "id": "d0001",
+      "name" : "Dr. Naing Shin Htet",
+      "photo" : "",
+      "phone" :"0921222222",
+      "age" : 55,
+      "degree" : "M.B.B.S | M.Med.Sc",
+      "biography" : "ဦးနှောက်အာရုံကြောအထူးကု",
+      "address" : "Mahar Myaing Hospital"
+    }
+  ],
+  "patients" : [
+    {
+      "id" : "p0001",
+      "name": "Mg Aye",
+      "photo" : "",
+      "age" : 20,
+      "phone" : "0921222222",
+      "address" : "Yangon",
+      "gender" : "Male",
+      "dateOfBirth" : "1/2/1996"
+    }
+  ],
+  "consultation_request" : [
+    {
+      "speciality" : "dentist",
+      "date_time" : "Sample date time",
+      "case_summary" : "cr0001",
+      "patient" :
+      {
+        "id" : "p0001",
+        "name": "Mg Aye",
+        "photo" : "",
+        "age" : 20,
+        "phone" : "0921222222",
+        "address" : "Yangon",
+        "gender" : "Male",
+        "dateOfBirth" : "1/2/1996"
+      }
+    }
+  ],
+  "consultation_chat" : [
+    {
+      "patien" :{
+        "id" : "p0001",
+        "name": "Mg Aye",
+        "photo" : "",
+        "age" : 20,
+        "phone" : "0921222222",
+        "address" : "Yangon",
+        "gender" : "Male",
+        "dateOfBirth" : "1/2/1996"
+      },
+      "doctor" : {
+        "id": "d0001",
+        "name" : "Dr. Naing Shin Htet",
+        "photo" : "",
+        "age" : 55,
+        "degree" : "M.B.B.S | M.Med.Sc",
+        "biography" : "ဦးနှောက်အာရုံကြောအထူးကု",
+        "address" : "Mahar Myaing Hospital"
+      },
+      "subCollection": {
+        "chat_message": [
+          {
+            "sendAt": "Nov 10,2020",
+            "sendBy": "Mg Mg",
+            "messageText": "Hi sir",
+            "messageImage": ""
+          },
+          {
+            "sendAt": "Nov 10,2020",
+            "sendBy": "Mg Aye",
+            "messageText": "Hi sir",
+            "messageImage": ""
+          }
+        ]
+      },
+      "case_summary" : [
+        {
+          "question" : "Q 1",
+          "answer" : "A 1"
+        },
+        {
+          "question" : "Q 2",
+          "answer" : "A 2"
+        }
+      ] ,
+      "prescription" : {
+        "ps_id" : "ps0001",
+        "total_price" : 2999,
+        "medicines" : [
+          {
+            "name" : "M 1",
+            "price" : 1000,
+            "count" : 2,
+            "routine": 1
+          },
+          {
+            "name" : "M 2",
+            "price" : 1000,
+            "count" : 3,
+            "routine": 1
+          }
+        ]
+      }
+    }
+  ],
+  "checkout" : [
+    {
+      "co_id" : "co0001",
+      "patient" : {
+        "id" : "p0001",
+        "name": "Mg Aye",
+        "photo" : "",
+        "age" : 20,
+        "phone" : "0921222222",
+        "address" : "Yangon",
+        "gender" : "Male",
+        "dateOfBirth" : "1/2/1996"
+      },
+      "prescription" : {
+        "ps_id" : "ps0001",
+        "total_price" : 2999,
+        "medicines" : [
+          {
+            "name" : "M 1",
+            "price" : 1000,
+            "count" : 2,
+            "routine": 1
+          },
+          {
+            "name" : "M 2",
+            "price" : 1000,
+            "count" : 3,
+            "routine": 1
+          }
+        ]
+      },
+      "doctor" :{
+        "id": "d0001",
+        "name" : "Dr. Naing Shin Htet",
+        "photo" : "",
+        "age" : 55,
+        "degree" : "M.B.B.S | M.Med.Sc",
+        "biography" : "ဦးနှောက်အာရုံကြောအထူးကု",
+        "address" : "Mahar Myaing Hospital"
+      },
+      "delivery_address" : "My Address",
+      "delivery_routine" : "24 hours"
+    }
+  ],
+  "general_question_template" : [
+    {
+      "id" : "gqt001",
+      "type" : "dentist",
+      "title" : "GQ Title",
+      "questions" : "First Question"
+    },
+    {
+      "id" : "gqt002",
+      "type" : "dentist",
+      "title" : "GQ Title",
+      "questions" : "Two Question"
+    }
+  ]
+}
