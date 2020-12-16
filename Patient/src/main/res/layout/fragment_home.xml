@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fragment_home_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fragment_home_bg"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/fragment_home_bg"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:id="@+id/rc_consulation"/>
+<!--            <include-->
+<!--                android:id="@+id/acceptConsultationView"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:visibility="visible"-->
+<!--                layout="@layout/consultation_request_viewpod"-->
+<!--                />-->
+            <LinearLayout
+                android:id="@+id/recentlyDoctorLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rc_consulation"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:background="@color/fragment_home_bg"
+                >
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvRecentlyDoctor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="မကြာသေးခင်က ဆွေးနွေးမှုများ"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/specilitiesColor"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:layout_marginLeft="14dp"
+                    android:fontFamily="@font/roboto_bold"
+                    />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcRecentlyDoctor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="6dp"
+                    android:background="@color/fragment_home_bg"
+                    >
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rc_consulation"
+                android:orientation="vertical"
+                >
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/tvTypeOfSympton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ရောဂါအမျိုးအစားများ"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/specilitiesColor"
+                    android:fontFamily="@font/roboto_bold"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:layout_marginLeft="14dp"
+                    />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcTypeOfSymptom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    >
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

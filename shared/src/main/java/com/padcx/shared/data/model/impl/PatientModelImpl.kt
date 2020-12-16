@@ -14,7 +14,8 @@ object PatientModelImpl: PatientModel,BaseModel() {
         onSuccess: () -> Unit,
         onError: (String) -> Unit
     ) {
-        mTheDB.patientDao().insertPatientData(patientVO)
+       // mTheDB.patientDao().insertPatientData(patientVO)
+//        mTheDB.patientDao().insertNewPatient(patientVO)
     }
 
     override fun saveSpecility() {

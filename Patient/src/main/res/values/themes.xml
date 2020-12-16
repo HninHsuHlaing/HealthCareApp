@@ -13,4 +13,20 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="RegularStyle">
+        <item name="android:textSize">@dimen/text_regular_2x</item>
+        <item name="android:layout_margin">@dimen/margin_medium_2</item>
+    </style>
+    <style name="TitleTextStyle">
+        <item name="android:textSize">@dimen/text_regular_3x</item>
+        <item name="android:layout_margin">@dimen/margin_medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="RegularStyleTwo">
+        <item name="android:textSize">@dimen/text_regular_3x</item>
+        <item name="android:layout_margin">@dimen/margin_medium</item>
+    </style>
+    <style name="Toolbar.TitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">13sp</item>
+    </style>
 </resources>

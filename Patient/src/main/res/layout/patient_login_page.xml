@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/MainPageColor"
+    android:orientation="vertical"
+    >
+    <mk.zawuni.zawgyiuni_detect.mmfont.components.MMTextView
+    android:layout_width="wrap_content"
+    android:layout_height="48dp"
+        android:text="The CareMM"
+        android:textSize="34sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="100dp"
+        android:textAlignment="center"
+        android:textStyle="normal"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/AppnameColor"
+        />
+    <org.mmtextview.components.MMTextView
+        android:layout_width="100dp"
+        android:layout_height="23dp"
+        android:textSize="16sp"
+        android:text="PATIENT APP"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/AppnameColor"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="152.9dp"
+        />
+    <ImageView
+        android:layout_width="398.1dp"
+        android:layout_height="288.9dp"
+        android:src="@drawable/app_main_pic"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="4dp"
+        />
+    <mk.zawuni.zawgyiuni_detect.mmfont.components.MMEditText
+        android:id="@+id/ed_email"
+        android:layout_width="370dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rounded_corner_btn_white"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
+        android:hint="Enter Email"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/LoginTextColor"
+        android:textSize="14sp"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        />
+    <mk.zawuni.zawgyiuni_detect.mmfont.components.MMEditText
+        android:id="@+id/ed_password"
+        android:layout_width="370dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rounded_corner_btn_white"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:hint="Enter Password"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/LoginTextColor"
+        android:textSize="14sp"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+
+        />
+    <org.mmtextview.components.MMButton
+        android:id="@+id/btnLogin"
+        android:layout_width="370dp"
+        android:layout_height="40dp"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_corner_btn_blue"
+        android:text="LOGIN"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:fontFamily="@font/poppins_regular"
+        />
+    <org.mmtextview.components.MMTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forget Password"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="6dp"
+        android:textSize="14sp"
+        android:textColor="#032ff2"
+        android:fontFamily="@font/poppins_regular"
+        />
+    <org.mmtextview.components.MMButton
+        android:id="@+id/btnRegister"
+        android:layout_width="370dp"
+        android:layout_height="40dp"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_corner_btn_blue"
+        android:text="Sign Up"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        />
+</LinearLayout>

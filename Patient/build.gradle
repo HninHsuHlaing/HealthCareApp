@@ -14,7 +14,8 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -125,4 +126,14 @@ dependencies {
     implementation rootProject.ext.libraries.firebaseInAppMessageKtx
     implementation rootProject.ext.libraries.firebaseMessageKtx
     implementation rootProject.ext.libraries.firebaseDeepLinkKtx
+
+    ////MMTextView
+    implementation "org.mmtextview:mmtextview:1.5"
+    implementation 'com.github.mgkaung692018:myanmar_font_detect:1.02'
+    implementation 'com.google.android.material:material:1.0.0'
+
+    ////stepper////
+    compile 'com.github.badoualy:stepper-indicator:1.0.7'
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
+
 }

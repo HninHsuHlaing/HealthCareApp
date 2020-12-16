@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:layout_margin="30dp"
+    app:cardCornerRadius="20dp"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:layout_marginTop="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="356dp"
+    android:layout_height="448dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_marginTop="40dp"
+            android:layout_width="180dp"
+            android:layout_height="130dp"
+            android:scaleType="centerCrop"
+            android:layout_marginLeft="90dp"
+            android:src="@drawable/appt_confirmation"/>
+        <org.mmtextview.components.MMTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/specilitiesColor"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="19sp"
+            android:fontFamily="@font/raleway_bold"
+            android:text="ဆွေးနွေးမှုအတည်ပြုချက်"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/consultation_request_name_id"
+            android:layout_width="315dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:paddingTop="6dp"
+            android:gravity="center"
+            android:text="ဆိုင်ရာ ဆရာဝန် နှင့် တိုင်ပင်ဆွေးနွေးရန်  Consultation Request ပြုလုပ်မှာသေချာပါသလား?"
+            android:textColor="@color/SureConfirmLetter"
+            android:textSize="16sp"
+            android:fontFamily="@font/raleway_medium"
+            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="17dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/cancel_btn"
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="မလုပ်တော့ပါ"
+                android:textColor="@color/notConfirm"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_bold"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/confirm_btn"
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="22dp"
+                android:background="@drawable/rounded_corner_btn_blue"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="သေချာပါသည်"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
