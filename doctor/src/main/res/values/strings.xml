@@ -13,4 +13,10 @@
         <item>ဓာတ်မှန် </item>
         <item>ခွဲစိတ် </item>
     </string-array>
+    <string-array name="medicine_date">
+        <item> Days</item>
+        <item> Week </item>
+    </string-array>
+
+
 </resources>

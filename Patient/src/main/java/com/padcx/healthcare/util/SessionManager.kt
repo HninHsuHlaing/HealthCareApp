@@ -2,6 +2,7 @@ package com.padcx.healthcare.util
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.google.gson.Gson
 import com.padcx.shared.data.vo.PatientVO
 import com.padcx.shared.util.*
 import java.sql.Timestamp
@@ -128,6 +129,42 @@ object SessionManager {
         set(value) = preferences.edit {
             it.putString(sharePreferencePatientCreateDate, value)
         }
+    var patient_address : String?
+
+        get() = preferences.getString(sharePreferencePatientAddress, "")
+
+        set(value) = preferences.edit {
+            it.putString(sharePreferencePatientAddress, value)
+        }
+    var patient_perment_address : String?
+
+        get() = preferences.getString(sharePreferencePatientPERMMENTAddress, "")
+
+        set(value) = preferences.edit {
+            it.putString(sharePreferencePatientPERMMENTAddress, value)
+        }
+    fun getPatientInfo() : PatientVO
+    {
+        val gson = Gson()
+      //  var addressList = gson.fromJson(SessionManager.patient_perment_address, Array<String>::class.java).toMutableList()
+
+        return  PatientVO(
+                id = SessionManager.patient_id.toString(),
+                deviceId = SessionManager.patient_deviceId.toString(),
+                name =  SessionManager.patient_name.toString(),
+                email  = SessionManager.patient_email.toString(),
+                photo = SessionManager.patient_photo.toString(),
+                blood_type =SessionManager.patient_bloodType.toString(),
+                blood_pressure=  SessionManager.patient_bloodPressure.toString(),
+                dob =  SessionManager.patient_dob.toString(),
+                weight =  SessionManager.patient_weight.toString(),
+                height =  SessionManager.patient_height.toString(),
+                allergic_medicine =  SessionManager.patient_allergicMedicine.toString(),
+              //  phone =  SessionManager.patient_phone.toString(),
+                perment_address=  SessionManager.patient_perment_address.toString()
+              //  address = addressList as ArrayList<String>
+        )
+    }
 
     fun addPatientInfo( patientVO: PatientVO)
     {
@@ -142,6 +179,7 @@ object SessionManager {
         patient_allergicMedicine = patientVO.allergic_medicine
         patient_weight = patientVO.weight
         patient_bloodPressure = patientVO.blood_pressure
+      //  patient_address =  Gson().toJson(patientVO.address)
        // patient_phone = patientVO.phone
 //        if(patientVO.address.size>0) {
 //            for(item in patientVO.address) {

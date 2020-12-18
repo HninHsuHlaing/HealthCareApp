@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.IgnoreExtraProperties
+import com.padcx.shared.data.vo.converters.AddressConverter
 import com.padcx.shared.data.vo.converters.TimeStampCOnverter
 
 
@@ -15,7 +16,7 @@ import com.padcx.shared.data.vo.converters.TimeStampCOnverter
 @Entity(tableName = "patient")
 
 @IgnoreExtraProperties
-@TypeConverters(TimeStampCOnverter::class)
+@TypeConverters(TimeStampCOnverter::class, AddressConverter::class)
 data class PatientVO(
     @PrimaryKey
     var id:String= "" ,
@@ -28,6 +29,8 @@ data class PatientVO(
     var deviceId:String? ="",
     var height : String? ="",
     var weight : String? ="",
-    var allergic_medicine : String? =""
+    var allergic_medicine : String? ="",
+    var perment_address: String=""
+  //  var address: ArrayList<String> = arrayListOf()
     //var created_date : Timestamp? = null
 )

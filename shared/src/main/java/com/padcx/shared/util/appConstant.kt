@@ -21,6 +21,7 @@ const val MESSAGE = "message"
 const val PRESCRIPRION_MEDICINE = "prescription"
 const val  CHECKOUT_MEDICINE = "checkout"
 const val CONSULTATED_PATIENT = "consulted_patient"
+const val PRESCRIPTION = "prescription"
 
 
 //Share Perfernence for doctor
@@ -37,6 +38,8 @@ const val sharePreferenceDoctorAddress = "doctor_speciality_name"
 const val sharePreferenceDoctorExperience = "doctor_experience"
 const val sharePreferenceDoctorDegree  = "doctor_degree"
 const val sharePreferenceDoctorBiography  = "doctor_biography"
+const val sharePreferenceDoctorGENDER  = "doctor_gender"
+const val sharePreferenceDoctorDATEOFBIRTH  = "doctor_dateofbirth"
 
 //Share Perfrenence for patient
 const val sharePreferencePatient  = "patient"
@@ -53,4 +56,6 @@ const val sharePreferencePatientBodyWeight  = "weight"
 const val sharePreferencePatientBloodPressure  = "blod_pressure"
 const val sharePreferencePatientPhoto  = "photo"
 const val sharePreferencePatientCreateDate = "date"
+const val sharePreferencePatientPERMMENTAddress  = "perment"
+const val sharePreferencePatientAddress  = "address"
 

@@ -14,5 +14,6 @@ data class FrequentlyMedicineVO(
     @PrimaryKey
     var id: String,
     var name: String? = "",
-    var price: Int? = 0
+    var price: Int? = 0,
+    var isSelected : Boolean = false
 )

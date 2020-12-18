@@ -19,7 +19,7 @@ import com.padcx.shared.util.DATABASE_NAME
     SpecialitiesVO::class,SpecialquestionVO::class,PrescriptionVO::class,CheckoutVO::class,
     MessageVO::class,RecentlyDoctorVO::class,ConsultatedPatientVO::class
         ],
-    version = 19,
+    version = 26,
     exportSchema = false
 )
 abstract class HealthCareDatabase : RoomDatabase(){
@@ -54,4 +54,5 @@ abstract class HealthCareDatabase : RoomDatabase(){
     abstract fun SpecilitiesDao(): SpecilitiesDao
     abstract fun ChatMessageDao() : ChatMessageDao
     abstract fun ConsultatedPatientDao() : ConsultatedPatientDao
+    abstract fun PrescriptionDao() : PrescriptionDao
 }

@@ -9,6 +9,8 @@ import android.graphics.ImageDecoder
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Editable
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import androidx.annotation.RequiresApi
@@ -21,6 +23,7 @@ import com.padcx.shared.data.vo.PatientVO
 import com.padcx.shared.util.ImageUtil
 import kotlinx.android.synthetic.main.activity_profile.*
 import java.io.IOException
+import kotlin.math.log
 
 /**
  * Created by Hnin Hsu Hlaing
@@ -116,6 +119,7 @@ class ProfileActivity : BaseActivity(),ProfileView{
 
         btn_save.setOnClickListener {
 
+
             mProgreessDialog.show()
             var dateofbirth ="$day  $month $year"
             bitmap?.let { it1 -> mPresenter?.updateUserData(it1 ,
@@ -150,12 +154,15 @@ class ProfileActivity : BaseActivity(),ProfileView{
             try {
                 filePath?.let {
                     if (Build.VERSION.SDK_INT >= 29) {
-                        val source: ImageDecoder.Source = ImageDecoder.createSource(this?.contentResolver!!, filePath)
-                        bitmap = ImageDecoder.decodeBitmap(source)
+                        val source: ImageDecoder.Source =
+                                ImageDecoder.createSource(this.contentResolver, filePath)
 
+                         bitmap = ImageDecoder.decodeBitmap(source)
+                        Log.d("Bitmap" , bitmap.toString())
+                      //  mPresenter
                         ImageUtil().showImageProfile(img_profile.context,img_profile,null,filePath)
                     } else {
-                        val bitmap = MediaStore.Images.Media.getBitmap(this?.contentResolver, filePath)
+                         bitmap = MediaStore.Images.Media.getBitmap(this?.contentResolver, filePath)
                         ImageUtil().showImageProfile(img_profile.context,img_profile,null,filePath)
 
                     }
@@ -168,7 +175,10 @@ class ProfileActivity : BaseActivity(),ProfileView{
     }
 
     override fun displayPatientData(patientVO: PatientVO) {
-
+        ptphone.text =    Editable.Factory.getInstance().newEditable(patientVO.email)
+        pt_height.text =    Editable.Factory.getInstance().newEditable(patientVO.height)
+        pt_comment.text =    Editable.Factory.getInstance().newEditable(patientVO.allergic_medicine)
+        et_address.text =    Editable.Factory.getInstance().newEditable(patientVO.perment_address)
     }
 
     override fun hideProgressDialog() {

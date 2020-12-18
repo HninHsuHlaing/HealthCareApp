@@ -19,7 +19,9 @@ object HealthCareModelImpl : HealthCareModel,BaseModel() {
 
 
     override fun uploadPhotoToFirebaseStorage(image: Bitmap, onSuccess: (photoUrl : String) -> Unit, onFailure: (String) -> Unit) {
-        mFirebaseApi.uploadPhotoToFirebaseStorage(image ,onSuccess,onFailure)
+        mFirebaseApi.uploadPhotoToFirebaseStorage(image ,
+                onSuccess,
+                onFailure)
     }
 
     override fun getDoctorByEmail(
@@ -90,6 +92,7 @@ object HealthCareModelImpl : HealthCareModel,BaseModel() {
     override fun getRecentlyConsultatedDoctor(documentId: String) {
         mFirebaseApi.getRecentlyConsultationDoctor(documentId, onSuccess = {
             Log.d("Recently Doctor for DB", it.toString())
+            mTheDB.RecentDoctorDao().deleteAllRecentDoctorData()
             mTheDB.RecentDoctorDao().insertRecentDoctorList(it)
         },
         onFailure = {
@@ -311,6 +314,41 @@ object HealthCareModelImpl : HealthCareModel,BaseModel() {
 
     override fun getConsultationChatByPatientIdFromDB(patientId: String): LiveData<List<ConsulationChatVO>> {
         return mTheDB.ConsultationChatDao().getAllConsultationChatDataByPatientId(patientId)
+    }
+
+    override fun finsishConsultation(consultationChatVO: ConsulationChatVO, prescriptionList: List<PrescriptionVO>, onSuccess: () -> Unit, onError: (String) -> Unit) {
+        mFirebaseApi.finishConsultation(consultationChatVO,prescriptionList, onSuccess = {
+        }, onFailure = {})
+    }
+
+    override fun getAllMedicine(speciality: String, onSuccess: () -> Unit, onError: (String) -> Unit) {
+        mFirebaseApi.getAllMedicine(speciality,  onSuccess = {
+            mTheDB.FrequentlyMedicineDao().deleteAllMedicine()
+            mTheDB.FrequentlyMedicineDao().insertMedicalDataList(it)
+        }, onFailure = {})
+    }
+
+    override fun getAllMedicineFromDB(): LiveData<List<FrequentlyMedicineVO>> {
+        return mTheDB.FrequentlyMedicineDao().getAllMedicine()
+    }
+
+    override fun getPrescription(consulationId: String, onSuccess: () -> Unit, onError: (String) -> Unit) {
+        mFirebaseApi.getPrescription(consulationId,  onSuccess = {
+            mTheDB.PrescriptionDao().deleteAllPrescriptionData()
+            mTheDB.PrescriptionDao().insertPrescriptionList(it)
+        }, onFailure = {})
+    }
+
+    override fun getPrescriptionFromDB(): LiveData<List<PrescriptionVO>> {
+        return mTheDB.PrescriptionDao().getAllPrescriptionData()
+    }
+
+    override fun saveMedicalRecord(consultationChatVO: ConsulationChatVO, onSuccess: () -> Unit, onError: (String) -> Unit) {
+        mFirebaseApi.saveMedicalRecord(consultationChatVO, onSuccess = {
+        }, onFailure = {})    }
+
+    override fun checkout(prescriptionList: List<PrescriptionVO>, delivery_address: String, doctorVO: DoctorVO, patientVO: PatientVO, total_price: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
+        mFirebaseApi.checkoutMedicine(prescriptionList, delivery_address,doctorVO, patientVO,total_price, onSuccess = {}, onFailure = {})
     }
 
     override fun getConsultationChatFromDB(consulationId: String): LiveData<ConsulationChatVO> {

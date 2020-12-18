@@ -13,7 +13,7 @@ interface ProfilePresenter {
     fun onUiReadyForProfile(context : Context, owner: LifecycleOwner)
 
     fun updateUserData(bitmap: Bitmap,
-                       specialitname : String, speciality : String,
+                       specialitname : String,
                        phone : String, degree : String,
                        bigraphy : String, address : String,
                        experience : String, dateofbirth : String,

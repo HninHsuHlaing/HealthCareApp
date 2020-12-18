@@ -16,8 +16,8 @@ import com.padcx.shared.data.vo.converters.RoutineVOConverter
 data class PrescriptionVO(
     @PrimaryKey
     var id:String ="",
-    var days: String? ="",
+    var count: String? ="",
     var medicine_name :String? = "",
     var routineVO: RoutineVO? = null,
-    var totalTime: Int? = 0
+    var price: String = ""
 )

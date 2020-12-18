@@ -9,9 +9,16 @@ import com.google.firebase.firestore.IgnoreExtraProperties
  */
 @IgnoreExtraProperties
 data class RoutineVO(
-    var day: String? = "",
-    var note: String? = "",
-    var repeat: String? = "",
-    var tab: String? = "",
-    var times: Timestamp? = null
+//    var day: String? = "",
+//    var note: String? = "",
+//    var repeat: String? = "",
+//    var tab: String? = "",
+//    var times: Timestamp? = null
+        var id: String= "",
+        var amount: String? = "",
+        var days: String ?="",
+        var comment: String? = "",
+        var repeat: String ?="",
+        var quantity: String? = "",
+        var times: String ?=""
 )

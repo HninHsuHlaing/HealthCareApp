@@ -45,16 +45,19 @@ class ProfilePresenterImpl : ProfilePresenter, AbstractBaseePresenter<ProfileVie
 
         mHealthCareModel.uploadPhotoToFirebaseStorage(bitmap,
                 onSuccess = {
-                    mAuthenticationModel.updateProfile(it,onSuccess = {}, onFailure = {})
-
+                    mAuthenticationModel.updateProfile(it,
+                            onSuccess = {
+                    },
+                            onFailure = {})
                     mView?.hideProgressDialog()
+
 
                     var patientVo = PatientVO(
                             id= SessionManager.patient_id.toString(),
                             deviceId = SessionManager.patient_deviceId.toString(),
                             name = SessionManager.patient_name.toString(),
                             email = SessionManager.patient_email.toString(),
-                            photo = it,
+                            photo = bitmap.toString(),
                             blood_type = blood_type,
                             blood_pressure =SessionManager.patient_bloodPressure.toString(),
                             dob = dateofbirth,

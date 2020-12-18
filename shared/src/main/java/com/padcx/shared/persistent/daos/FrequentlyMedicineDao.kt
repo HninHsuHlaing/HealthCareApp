@@ -13,15 +13,18 @@ import com.padcx.shared.data.vo.FrequentlyMedicineVO
  */
 @Dao
 interface FrequentlyMedicineDao {
-    @Query("SELECT * FROM medicine")
-    fun getMedicineList() : LiveData<List<FrequentlyMedicineVO>>
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertMedicalData(data: FrequentlyMedicineVO)
 
-    @Query("SELECT * FROM medicine WHERE id = :medicineId")
-    fun getMedicineById(medicineId :String) : LiveData<FrequentlyMedicineVO>
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertMedicalDataList(list: List<FrequentlyMedicineVO>)
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertMedicine(detail: FrequentlyMedicineVO)
+    @Query("select * from medicine")
+    fun getAllMedicine(): LiveData<List<FrequentlyMedicineVO>>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertMedicineList(detailList: List<FrequentlyMedicineVO>)
+    @Query("select * from medicine WHERE id = :id")
+    fun getAllMedicineByData(id: String): LiveData<FrequentlyMedicineVO>
+
+    @Query("DELETE FROM medicine")
+    fun deleteAllMedicine()
 }

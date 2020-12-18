@@ -21,6 +21,9 @@
         <activity android:name=".activities.CaseSummaryActivity"></activity>
         <activity android:name=".activities.MainActivity"> </activity>
         <activity android:name=".activities.ChatRoomActivity"></activity>
+        <activity android:name=".activities.ProfileActivity"></activity>
+        <activity android:name=".activities.CheckOutActivity"></activity>
+
 
 
 

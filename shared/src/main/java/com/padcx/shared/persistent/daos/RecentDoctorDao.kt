@@ -27,4 +27,7 @@ interface RecentDoctorDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertRecentDoctorList(recentDoctorList: List<RecentlyDoctorVO>)
+
+    @Query("DELETE FROM recently_doctor")
+    fun deleteAllRecentDoctorData()
 }

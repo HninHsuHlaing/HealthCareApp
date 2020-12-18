@@ -110,6 +110,10 @@
     <string name="experience">လုပ်သက်</string>
     <string name="gender">အမျိုးသား အမျိုးသမီး</string>
     <string name="specialitsname">အထူးကု</string>
+    <string name="medical_record">ဆေးကုသမှုမှတ်တမ်း</string>
+    <string name="medical_record_hint">ဆေးကုသမှု မှတ်တမ်းရေးသားရန်</string>
+    <string name="start_discuss_date">ဆွေးနွေးမှု ပြုလုပ်သည့် ရက်စွဲ</string>
+    <string name="fill_btn">ထည့်မည်</string>
     <string name="image_upload_service_not_available">လက်တလော အချိန်တွင် ဓာတ်ပုံ ပေးပို့ခြင်း မလုပ်ဆောင်နိုင်သေးပါ</string>
 
 

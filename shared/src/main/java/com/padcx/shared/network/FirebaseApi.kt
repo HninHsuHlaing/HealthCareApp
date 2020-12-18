@@ -48,7 +48,7 @@ interface FirebaseApi {
         onFailure: (String) -> Unit
     )
 
-    fun finishConsultation()
+   // fun finishConsultation()
 
     fun preSubscribeMedicine(
         documentid: String,
@@ -86,11 +86,9 @@ interface FirebaseApi {
         onFailure: (String) -> Unit
     )
 
-    fun checkoutMedicine(address:String,
-                         doctorVO: DoctorVO,
-                         patientVO: PatientVO,
-                         prescriptionList: List<PrescriptionVO>,
-                         totalPrice:Int,onSuccess: () -> Unit,onFailure: (String) -> Unit)
+    fun checkoutMedicine(prescriptionList : List<PrescriptionVO>,deliveryAddressVO: String,
+                         doctorVO: DoctorVO, patientVO: PatientVO , total_price : String,
+                         onSuccess: () -> Unit,onFailure: (String) -> Unit)
 
     fun getRecentlyConsultationDoctor(
         documentId: String,
@@ -151,4 +149,10 @@ interface FirebaseApi {
 
     fun getConsulationChatByPatientId(patientId : String ,
                                       onSuccess: (List<ConsulationChatVO>) -> Unit,onFailure: (String) -> Unit)
+
+    fun finishConsultation(consultationChatVO: ConsulationChatVO, prescriptionList : List<PrescriptionVO>, onSuccess: () -> Unit,onFailure: (String) -> Unit)
+
+    fun saveMedicalRecord(consultationChatVO: ConsulationChatVO ,onSuccess: () -> Unit,onFailure: (String) -> Unit)
+
+    fun getPrescription(consulationId: String ,onSuccess: (List<PrescriptionVO>) -> Unit,onFailure: (String) -> Unit)
 }

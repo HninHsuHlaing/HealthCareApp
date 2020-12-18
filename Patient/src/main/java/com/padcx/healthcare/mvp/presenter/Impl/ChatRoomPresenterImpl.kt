@@ -11,6 +11,7 @@ import com.padcx.shared.data.vo.MessageVO
 import com.padcx.shared.data.vo.SenderVO
 import com.padcx.shared.mvp.presenter.AbstractBaseePresenter
 import com.padcx.shared.util.DateUtil
+import com.padcx.shared.util.PATIENT
 import java.util.*
 
 /**
@@ -41,6 +42,15 @@ class ChatRoomPresenterImpl: ChatRoomPresenter, AbstractBaseePresenter<ChatView>
                     }
 
                 })
+
+        mHealthCareModel.getPrescription(consultationChatId, onSuccess = {}, onError = {})
+
+        mHealthCareModel.getPrescriptionFromDB()
+                .observe(owner, Observer {
+                    it?.let{
+                        mView?.displayPrescriptionViewPod(it)
+                    }
+                })
     }
 
     override fun addTextMessage(message: String, consultationChatId: String,
@@ -55,8 +65,9 @@ class ChatRoomPresenterImpl: ChatRoomPresenter, AbstractBaseePresenter<ChatView>
         var chatMessage = MessageVO(id =id,
                 messageText = message,
                 messageImage = "",
-                sendAt = senderId,
-                sendBy= sendBy, type= ""
+                sendAt = DateUtil().getCurrentHourMinAMPM(),
+                sendBy= sendBy,
+                type= PATIENT
         )
         mHealthCareModel.sendChatMessage(chatMessage,consultationChatId,onSuccess = {},onError = {})
     }
@@ -83,5 +94,9 @@ class ChatRoomPresenterImpl: ChatRoomPresenter, AbstractBaseePresenter<ChatView>
 
     override fun onTapDoctorComment() {
 
+    }
+
+    override fun onTapPrescriptionViewPod(chatid: String) {
+        mView?.nextPageToCheckout(chatid)
     }
 }

@@ -8,10 +8,12 @@ import com.padcx.doctor.delegate.QuestionAndAnswerDelegate
 import com.padcx.doctor.mvp.presenter.ChatRoomPresenter
 import com.padcx.doctor.mvp.view.ChatView
 import com.padcx.shared.data.model.impl.HealthCareModelImpl
+import com.padcx.shared.data.vo.DoctorVO
 import com.padcx.shared.data.vo.MessageVO
 import com.padcx.shared.data.vo.SenderVO
 import com.padcx.shared.mvp.presenter.AbstractBaseePresenter
 import com.padcx.shared.mvp.presenter.BasePresenter
+import com.padcx.shared.util.DOCTOR
 import com.padcx.shared.util.DateUtil
 import java.util.*
 
@@ -42,6 +44,14 @@ class ChatRoomPresenterImpl : ChatRoomPresenter, AbstractBaseePresenter<ChatView
                         mView?.displayChatMessageList(data)
                     }
                 })
+        mHealthCareModel.getPrescription(consultationChatId, onSuccess = {}, onError = {})
+
+        mHealthCareModel.getPrescriptionFromDB()
+                .observe(owner, Observer {
+                    it?.let{
+                        mView?.displayPrescriptionViewPod(it)
+                    }
+                })
     }
 
     override fun addTextMessage(message: String, consultationChatId: String, senderId: String, senderPhoto: String,
@@ -55,8 +65,9 @@ class ChatRoomPresenterImpl : ChatRoomPresenter, AbstractBaseePresenter<ChatView
         var chatMessage = MessageVO(id =id,
                 messageText = message,
                 messageImage = "",
-                sendAt = senderId,
-                sendBy= sendBy, type= ""
+                sendAt = DateUtil().getCurrentHourMinAMPM(),
+                sendBy= sendBy,
+                type= DOCTOR
         )
 //        var chatMessage = MessageVO(id =id, message, "", DateUtil().getCurrentDateTime(), sendBy, type
 //        )

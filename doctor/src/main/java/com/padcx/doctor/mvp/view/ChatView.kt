@@ -2,6 +2,7 @@ package com.padcx.doctor.mvp.view
 
 import com.padcx.shared.data.vo.ConsulationChatVO
 import com.padcx.shared.data.vo.MessageVO
+import com.padcx.shared.data.vo.PrescriptionVO
 import com.padcx.shared.mvp.view.BaseView
 
 /**
@@ -11,4 +12,5 @@ import com.padcx.shared.mvp.view.BaseView
 interface ChatView : BaseView{
     fun displayPatientInfo(consultationChatVO: ConsulationChatVO)
     fun displayChatMessageList(list : List<MessageVO>)
+    fun displayPrescriptionViewPod(prescription_list : List<PrescriptionVO>)
 }

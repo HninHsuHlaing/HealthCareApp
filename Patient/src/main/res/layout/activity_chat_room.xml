@@ -38,7 +38,7 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:id="@+id/scrollview"
-            android:layout_marginBottom="90dp"
+            android:layout_marginBottom="80dp"
             android:layout_height="match_parent">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -93,7 +93,7 @@
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1.4"
-                                        android:text=": "
+                                        android:text=": Mg Kaung"
                                         android:id="@+id/pname"
                                         android:textSize="12sp"
                                         android:textColor="@color/black"
@@ -117,7 +117,7 @@
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1.4"
-                                        android:text=": "
+                                        android:text=": Mg Kaung"
                                         android:textColor="@color/black"
                                         android:textSize="12sp"
                                         android:id="@+id/pdateofBirth"
@@ -141,7 +141,7 @@
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1.4"
-                                        android:text=":"
+                                        android:text=": Mg Kaung"
                                         android:textColor="@color/black"
                                         android:textSize="12sp"
                                         android:id="@+id/pheight"
@@ -167,7 +167,7 @@
                                         android:layout_weight="1.4"
                                         android:textSize="12sp"
                                         android:textColor="@color/black"
-                                        android:text=": "
+                                        android:text=": Mg Kaung"
                                         android:id="@+id/pbloodtype"
                                         android:padding="5dp"/>
                                 </LinearLayout>
@@ -189,7 +189,7 @@
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1.4"
-                                        android:text=":"
+                                        android:text=": Mg Kaung"
                                         android:id="@+id/pweight"
                                         android:textColor="@color/black"
                                         android:padding="5dp"/>
@@ -212,7 +212,7 @@
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1.4"
-                                        android:text=":"
+                                        android:text=": Mg Kaung"
                                         android:textSize="12sp"
                                         android:id="@+id/pbloodpressure"
                                         android:textColor="@color/black"
@@ -236,7 +236,7 @@
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1.4"
-                                        android:text=":"
+                                        android:text=": Mg Kaung"
                                         android:textColor="@color/black"
                                         android:textSize="12sp"
                                         android:id="@+id/pcomment"
@@ -275,6 +275,12 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/rc_chating"
                     android:nestedScrollingEnabled="true"/>
+                <include layout="@layout/prescription_item_for_chat"
+                    android:id="@+id/prescritpionview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="50dp"
+                    android:visibility="gone"/>
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>

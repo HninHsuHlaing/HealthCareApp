@@ -94,6 +94,16 @@ object SessionManager {
         set(value) = preferences.edit {
             it.putString(sharePreferenceDoctorBiography, value)
         }
+    var doctor_dob: String?
+        get() = preferences.getString(sharePreferencePatientDateOfBirth, "")
+        set(value) = preferences.edit {
+            it.putString(sharePreferencePatientDateOfBirth, value)
+        }
+    var doctor_gender: String?
+        get() = preferences.getString(sharePreferenceDoctorGENDER, "")
+        set(value) = preferences.edit {
+            it.putString(sharePreferenceDoctorGENDER, value)
+        }
 
     fun addDoctorInfo(doctorVO: DoctorVO)
     {
@@ -107,9 +117,9 @@ object SessionManager {
         doctor_phone = doctorVO.phone
         doctor_degree = doctorVO.degree
         doctor_biography = doctorVO.biography
-        //doctor_dateofBirth = doctorVO.dateofBirth
+        doctor_dob = doctorVO.dob
         doctor_experience = doctorVO.experience
-        //doctor_gender = doctorVO.gender
+        doctor_gender = doctorVO.gender
         doctor_address = doctorVO.address
     }
 

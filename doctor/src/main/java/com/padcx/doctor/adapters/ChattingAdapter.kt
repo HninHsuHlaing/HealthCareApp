@@ -43,7 +43,7 @@ class ChattingAdapter (delegate : ChatRoomDelegate) : BaseRecyclerAdapter<BaseCh
 
     override fun getItemViewType(position: Int): Int {
         when{
-            mData[position].sendAt == PATIENT ->{
+            mData[position].type == PATIENT ->{
                 return view_Type_Patient
             }else->{
             return view_Type_Doctor

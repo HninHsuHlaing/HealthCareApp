@@ -17,12 +17,13 @@ import com.padcx.shared.data.vo.converters.*
 data class ConsulationChatVO(
         @PrimaryKey
     var id: String= "",
-        var patient: PatientVO? = null,
-        var doctor: DoctorVO? = null,
+        var patient: PatientVO = PatientVO(),
+        var doctor: DoctorVO = DoctorVO(),
         var caseSummary:  ArrayList<QuestionAndAnswerVO>? = arrayListOf(),
         var patient_id : String? = "",
         var status : Boolean = false,
         var doctor_id :String? = "",
-        var start_consultation_date : String ?= ""
+        var start_consultation_date : String ?= "",
+        var medical_record :String ? = ""
 //        var finish_consultation_status : Boolean = false
 )

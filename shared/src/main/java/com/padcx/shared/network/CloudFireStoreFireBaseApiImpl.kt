@@ -46,7 +46,10 @@ object CloudFireStoreFireBaseApiImpl : FirebaseApi {
             return@continueWithTask imageRef.downloadUrl
         }.addOnCompleteListener { task ->
             val imageUrl = task.result?.toString()
-            imageUrl?.let { onSuccess(it) }
+            imageUrl?.let {
+
+                onSuccess(it)
+            }
         }
     }
 
@@ -114,7 +117,8 @@ object CloudFireStoreFireBaseApiImpl : FirebaseApi {
                 .document(patientVO.id)
                 .set(patientVO)
                 .addOnSuccessListener {
-                    Log.d("Success", "Successfully") }
+                    Log.d("Success", "Successfully")
+                onSuccess()}
                 .addOnFailureListener {
                     Log.d("Failure", "Failed ") }
     }
@@ -180,13 +184,13 @@ object CloudFireStoreFireBaseApiImpl : FirebaseApi {
 
 
     override fun checkoutMedicine(
-        address: String,
-        doctorVO: DoctorVO,
-        patientVO: PatientVO,
-        prescriptionList: List<PrescriptionVO>,
-        totalPrice: Int,
-        onSuccess: () -> Unit,
-        onFailure: (String) -> Unit
+            prescriptionList: List<PrescriptionVO>,
+            deliveryAddressVO: String,
+            doctorVO: DoctorVO,
+            patientVO: PatientVO,
+            total_price: String,
+            onSuccess: () -> Unit,
+            onFailure: (String) -> Unit
     ) {
         val deliveryRoutineVO = DeliveryRoutineVO(
             "", DateUtil().getDaysAgo(3).toString()
@@ -194,12 +198,12 @@ object CloudFireStoreFireBaseApiImpl : FirebaseApi {
         val uuid = UUID.randomUUID().toString()
         val checkoutMap = hashMapOf(
             "id" to uuid,
-            "address" to address,
+            "address" to deliveryAddressVO,
             "patient" to patientVO,
             "doctor" to doctorVO,
             "delivery_routine" to deliveryRoutineVO,
             "prescription" to prescriptionList,
-            "total_price" to totalPrice
+            "total_price" to total_price
         )
         db.collection(CHECKOUT_MEDICINE)
             .document(uuid.toString())
@@ -315,6 +319,7 @@ object CloudFireStoreFireBaseApiImpl : FirebaseApi {
     /////Doctor//////////
     override fun addOrUpdateDoctorData(doctorVO: DoctorVO, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
         val doctorMap = hashMapOf(
+                "id" to doctorVO.id,
             "name" to doctorVO.name,
             "photo" to doctorVO.photo,
             "biography" to doctorVO.biography,
@@ -322,7 +327,11 @@ object CloudFireStoreFireBaseApiImpl : FirebaseApi {
             "experience" to doctorVO.experience,
             "address" to doctorVO.address,
             "email" to doctorVO.email,
-            "speciality" to doctorVO.speciality
+            "speciality" to doctorVO.speciality,
+                "gender" to doctorVO.gender,
+                "dob" to doctorVO.dob,
+                "deviceId" to doctorVO.deviceId,
+                "phone" to doctorVO.phone
         )
         doctorVO.name?.let {
             db.collection(DOCTOR)
@@ -436,14 +445,7 @@ object CloudFireStoreFireBaseApiImpl : FirebaseApi {
             onFailure: (String) -> Unit
     ) {
         val consultationRequestMap = hashMapOf(
-//                "status" to "accept",
-//                "doctor" to doctorVO,
-//                "patient" to patientVO,
-//                "speciality" to doctorVO.speciality,
-//                "caseSummary" to questionAnswerList,
-//                "d_id" to doctorVO.id,
-//                "p_id" to "3a2306a4-7228-4563-9595-2b42115bc3af",
-//                "consultation_id" to " "
+
                "cr_id" to cr_id,
                 "status" to status,
                 "d_id" to doctorId,
@@ -492,9 +494,9 @@ object CloudFireStoreFireBaseApiImpl : FirebaseApi {
             }
     }
 
-    override fun finishConsultation() {
-
-    }
+//    override fun finishConsultation() {
+//
+//    }
 
     override fun preSubscribeMedicine(
             documentid: String,
@@ -608,7 +610,8 @@ object CloudFireStoreFireBaseApiImpl : FirebaseApi {
             "messageText" to messageVO.messageText,
             "messageImage" to messageVO.messageImage,
             "sentBy" to messageVO.sendBy,
-            "sendAt" to messageVO.sendAt
+            "sendAt" to messageVO.sendAt,
+                "type" to messageVO.type
 
         )
 
@@ -642,7 +645,7 @@ object CloudFireStoreFireBaseApiImpl : FirebaseApi {
             "doctor" to doctorVO,
                 "patient_id" to patientVO.id,
                 "doctor_id" to doctorVO.id,
-                "start_consultation_date" to DateUtil().getCurrentDateTime(),
+                "start_consultation_date" to DateUtil().getCurrentHourMinAMPM(),
             "caseSummary" to questionAnswerList,
                 "status" to false
         )
@@ -897,5 +900,67 @@ object CloudFireStoreFireBaseApiImpl : FirebaseApi {
                     }
                 }
     }
+
+    override fun finishConsultation(consultationChatVO: ConsulationChatVO, prescriptionList: List<PrescriptionVO>, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
+        consultationChatVO.doctor?.let {
+
+            db.collection("$PATIENT/${consultationChatVO.patient_id}/$RECENTLY_DOCTOR")
+                    .document(consultationChatVO.doctor_id.toString())
+                    .set(it)
+                    .addOnSuccessListener { Log.d("Success", "Successfully ") }
+                    .addOnFailureListener { Log.d("Failure", "Failed") }
+        }
+
+        val consultationChatMap = hashMapOf(
+                "finish_consultation_status" to true,
+                "id" to consultationChatVO.id,
+                "patient_id" to consultationChatVO.patient_id,
+                "doctor_id" to consultationChatVO.doctor_id,
+                "caseSummary" to consultationChatVO.caseSummary,
+                "patient" to consultationChatVO.patient,
+                "start_consultation_date" to consultationChatVO.start_consultation_date,
+                "medical_record" to consultationChatVO.medical_record,
+                "doctor" to consultationChatVO.doctor)
+
+        db.collection("$CONSULTATION_CHAT")
+                .document(consultationChatVO.id)
+                .set(consultationChatMap)
+                .addOnSuccessListener { Log.d("Success", "Successfully ") }
+                .addOnFailureListener { Log.d("Failure", "Failed") }
+
+        for(item in prescriptionList) {
+            db.collection("$CONSULTATION_CHAT/${consultationChatVO.id}/$PRESCRIPTION")
+                    .document(item.id)
+                    .set(item)
+                    .addOnSuccessListener { Log.d("Success", "Successfully ") }
+                    .addOnFailureListener { Log.d("Failure", "Failed") }
+        }
+    }
+
+    override fun saveMedicalRecord(consultationChatVO: ConsulationChatVO, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
+        db.collection(CONSULTATION_CHAT)
+                .document(consultationChatVO.id)
+                .set(consultationChatVO)
+                .addOnSuccessListener { Log.d("Success", "Successfully ") }
+                .addOnFailureListener { Log.d("Failure", "Failed") }
+    }
+
+    override fun getPrescription(consulationId: String, onSuccess: (List<PrescriptionVO>) -> Unit, onFailure: (String) -> Unit) {
+        db.collection("$CONSULTATION_CHAT/$consulationId/$PRESCRIPTION")
+                .get()
+                .addOnSuccessListener { result ->
+                    val list: MutableList<PrescriptionVO> = arrayListOf()
+                    for (document in result) {
+                        val hashmap = document.data
+                        hashmap?.put("id", document.id.toString())
+                        val Data = Gson().toJson(hashmap)
+                        val docsData = Gson().fromJson<PrescriptionVO>(Data, PrescriptionVO::class.java)
+                        list.add(docsData)
+                    }
+                    onSuccess(list)
+
+                }
+    }
+
 
 }

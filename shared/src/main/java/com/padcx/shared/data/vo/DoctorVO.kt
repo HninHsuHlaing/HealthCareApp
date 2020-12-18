@@ -23,5 +23,7 @@ data class DoctorVO(
     var email: String? ="",
     var deviceId:String? = "",
     var phone:String? ="",
-    var status:Boolean = false
+    var status:Boolean = false,
+    var gender : String? = "",
+    var dob : String? = ""
 )

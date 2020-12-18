@@ -66,12 +66,12 @@ class ProfileActivity : BaseActivity() , ProfileView {
         doctorname.text = Editable.Factory.getInstance().newEditable( SessionManager.doctor_name)
         doctorphone.text = Editable.Factory.getInstance().newEditable(SessionManager.doctor_phone)
         doctorspeciality.text = Editable.Factory.getInstance().newEditable(SessionManager.doctor_specility)
-       // doctor_dateofbirth.text =  " : " + Editable.Factory.getInstance().newEditable(SessionManager)
-       // doctor_gender.text = " : " + Editable.Factory.getInstance().newEditable(SessionManager.)
+        doctor_dateofbirth.text =  " : " + Editable.Factory.getInstance().newEditable(doctorVo.dob)
+        doctor_gender.text = " : " + Editable.Factory.getInstance().newEditable(doctorVo.gender)
         doctor_address.text = Editable.Factory.getInstance().newEditable(SessionManager.doctor_address)
         doctor_degree.text = Editable.Factory.getInstance().newEditable(SessionManager.doctor_degree)
-        doctor_biography.text = Editable.Factory.getInstance().newEditable(SessionManager.doctor_biography)
-        doctor_experience.text = " : " + Editable.Factory.getInstance().newEditable(SessionManager.doctor_experience)
+        doctor_biography.text = Editable.Factory.getInstance().newEditable(doctorVo.biography)
+        doctor_experience.text = " : " + Editable.Factory.getInstance().newEditable(doctorVo.experience)
     }
 
     override fun hideProgressDialog() {}

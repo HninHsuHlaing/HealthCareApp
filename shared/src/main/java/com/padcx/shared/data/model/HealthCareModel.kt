@@ -150,4 +150,25 @@ interface HealthCareModel {
     fun getConsultationChatByPatientId(patientId:  String,  onSuccess: () -> Unit, onError: (String) -> Unit)
 
     fun getConsultationChatByPatientIdFromDB(patientId : String) : LiveData<List<ConsulationChatVO>>
+
+    fun finsishConsultation( consultationChatVO: ConsulationChatVO , prescriptionList : List<PrescriptionVO> ,
+                             onSuccess: () -> Unit, onError: (String) -> Unit)
+
+    fun getAllMedicine(speciality: String ,onSuccess: () -> Unit, onError: (String) -> Unit)
+
+    fun getAllMedicineFromDB() : LiveData<List<FrequentlyMedicineVO>>
+
+    fun getPrescription(consulationId : String ,onSuccess: () -> Unit, onError: (String) -> Unit)
+
+    fun getPrescriptionFromDB( ) : LiveData<List<PrescriptionVO>>
+
+    fun saveMedicalRecord( consultationChatVO: ConsulationChatVO, onSuccess: () -> Unit, onError: (String) -> Unit)
+
+    fun checkout(   prescriptionList: List<PrescriptionVO>,
+                    delivery_address: String,
+                    doctorVO: DoctorVO,
+                    patientVO: PatientVO,
+                    total_price : String,
+                    onSuccess: () -> Unit,
+                    onFailure: (String) -> Unit)
 }

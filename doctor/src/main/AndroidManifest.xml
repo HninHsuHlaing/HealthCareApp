@@ -23,6 +23,8 @@
         <activity android:name=".activities.ChatRoomActivity"></activity>
         <activity android:name=".activities.QuestionTemplateActivity"></activity>
         <activity android:name=".activities.EditProfileActivity"></activity>
+        <activity android:name=".activities.PrescriptionActivity"></activity>
+        <activity android:name=".activities.MedicalCommentAcitivity"></activity>
         <activity android:name=".activities.MainActivity">
 
         </activity>

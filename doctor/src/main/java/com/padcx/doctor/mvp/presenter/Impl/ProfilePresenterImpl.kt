@@ -34,11 +34,10 @@ class ProfilePresenterImpl  : ProfilePresenter, AbstractBaseePresenter<ProfileVi
     }
 
     override fun updateUserData(bitmap: Bitmap,
-                                specialitname : String, speciality : String,
-                                phone : String, degree : String,
-                                bigraphy : String, address : String,
-                                experience : String, dateofbirth : String,
-                                gender: String)
+                                specialitname: String, phone: String,
+                                degree: String, bigraphy: String,
+                                address: String, experience: String,
+                                dateofbirth: String, gender: String)
     {
         mHealthCareModel.uploadPhotoToFirebaseStorage(bitmap,
                 onSuccess = {
@@ -52,13 +51,14 @@ class ProfilePresenterImpl  : ProfilePresenter, AbstractBaseePresenter<ProfileVi
                             name = SessionManager.doctor_name.toString(),
                             email = SessionManager.doctor_email.toString(),
                             photo = it,
-                            speciality = speciality,
+                            speciality = specialitname,
                             phone = phone,
                             degree = degree,
                             biography = bigraphy,
                             address = address,
-                            experience = experience
-
+                            experience = experience,
+                            gender =  gender,
+                            dob = dateofbirth
                     )
                     mHealthCareModel.addDoctorInfo(doctorVO,onSuccess = {}, onError = {})
                 },
