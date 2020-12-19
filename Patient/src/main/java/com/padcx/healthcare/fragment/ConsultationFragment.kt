@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.padcx.healthcare.R
 import com.padcx.healthcare.activities.ChatRoomActivity
 import com.padcx.healthcare.adapters.ChatAdapter
+import com.padcx.healthcare.dialog.PrescriptionDialog
 import com.padcx.healthcare.mvp.presenter.ChatPresenter
 import com.padcx.healthcare.mvp.presenter.Impl.ChatPresenterImpl
 import com.padcx.healthcare.mvp.view.ChatHistoryView
@@ -83,7 +84,15 @@ class ConsultationFragment : Basefragment(), ChatHistoryView {
     }
 
     override fun showPrescriptionDialog(finish_consulation: Boolean, consulationchatId: String, patient_name: String, start_conservation_date: String) {
-        Toast.makeText(activity,"ဆေးညွန်းမရှိသေးပါ", Toast.LENGTH_SHORT).show()
+        ///Toast.makeText(activity,"ဆေးညွန်းမရှိသေးပါ", Toast.LENGTH_SHORT).show()
+        if(finish_consulation)
+        {
+            val dialog: PrescriptionDialog = PrescriptionDialog.newInstance(consulationchatId, patient_name, start_conservation_date)
+            fragmentManager?.let { dialog.show(it, "") }
+
+        }else {
+            Toast.makeText(activity,"ဆေးညွန်းမရှိသေးပါ",Toast.LENGTH_SHORT).show()
+        }
 
     }
 

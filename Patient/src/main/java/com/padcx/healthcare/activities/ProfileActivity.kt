@@ -23,7 +23,6 @@ import com.padcx.shared.data.vo.PatientVO
 import com.padcx.shared.util.ImageUtil
 import kotlinx.android.synthetic.main.activity_profile.*
 import java.io.IOException
-import kotlin.math.log
 
 /**
  * Created by Hnin Hsu Hlaing
@@ -122,9 +121,10 @@ class ProfileActivity : BaseActivity(),ProfileView{
 
             mProgreessDialog.show()
             var dateofbirth ="$day  $month $year"
-            bitmap?.let { it1 -> mPresenter?.updateUserData(it1 ,
-                    bloodType.toString()  ,dateofbirth,
-                    pt_height.text.toString(),pt_comment.text.toString(),ptphone.text.toString()
+            bitmap?.let { it1 -> mPresenter?.updateUserData(it1,
+                    bloodType.toString(), dateofbirth,
+                    pt_height.text.toString(), pt_comment.text.toString(), ptphone.text.toString(),
+                    et_address.text.toString()
             ) }
 
         }
@@ -175,6 +175,7 @@ class ProfileActivity : BaseActivity(),ProfileView{
     }
 
     override fun displayPatientData(patientVO: PatientVO) {
+        ImageUtil().showImage(img_profile, patientVO.photo.toString(),R.drawable.user)
         ptphone.text =    Editable.Factory.getInstance().newEditable(patientVO.email)
         pt_height.text =    Editable.Factory.getInstance().newEditable(patientVO.height)
         pt_comment.text =    Editable.Factory.getInstance().newEditable(patientVO.allergic_medicine)

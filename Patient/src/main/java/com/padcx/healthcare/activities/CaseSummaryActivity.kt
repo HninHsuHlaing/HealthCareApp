@@ -17,13 +17,15 @@ import kotlinx.android.synthetic.main.case_summary.*
 class CaseSummaryActivity :BaseActivity(),CaseSummaryDelegate{
     companion object {
         const val PARM_SPECIALITYID = "SPECIALITY ID"
-        const val PARM_EMAIL = "EMAIL ID"
+        const val PARM_DOCTORVO = "PARM_DOCTORVO"
         fun newIntent(
-            context: Context,
-            specialityID: String
+                context: Context,
+                specialityID: String,
+                doctorVO : String
         ) : Intent {
             val intent = Intent(context, CaseSummaryActivity::class.java)
             intent.putExtra(PARM_SPECIALITYID, specialityID)
+            intent.putExtra(PARM_DOCTORVO, doctorVO)
             return intent
         }
     }

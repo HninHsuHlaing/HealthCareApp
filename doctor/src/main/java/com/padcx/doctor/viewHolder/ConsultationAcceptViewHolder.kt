@@ -32,6 +32,11 @@ class ConsultationAcceptViewHolder(itemView: View, private val mDelegate: Consul
             itemView.txt_comment.setOnClickListener {
                 mDelegate.onTapDoctorComment(data)
             }
+
+            itemView.txt_send_message.setOnClickListener {
+                mDelegate.onTapSendMessage(data)
+            }
+
         }
     }
 }

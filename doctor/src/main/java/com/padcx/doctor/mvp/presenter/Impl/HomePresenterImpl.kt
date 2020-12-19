@@ -88,20 +88,26 @@ class HomePresenterImpl: HomePresenter, AbstractBaseePresenter<HomView>() {
     }
 
     override fun onTapMedicalRecord(consultationRequestVO: ConsulationChatVO) {
-
+        mView?.displayPatientInfoDialog(consultationRequestVO)
     }
 
     override fun onTapPrescription(consultationRequestVO: ConsulationChatVO) {
-
+        mView?.displayPrescriptionDialog(consultationRequestVO.id, consultationRequestVO.patient?.name.toString(),
+                consultationRequestVO.start_consultation_date.toString())
     }
 
     override fun onTapSendMessage(consultationRequestVO: ConsulationChatVO) {
-
+        mView?.nextPageChatRoom(consultationRequestVO.id)
     }
 
 
     override fun onTapDoctorComment(consultationRequestVO: ConsulationChatVO) {
-
+        mHealthCareModel.getConsultationChatFromDB(consultationRequestVO.id)
+                .observe(mOwner, Observer { data ->
+                    data?.let {
+                        mView?.displayMedicalCommentDialog(it)
+                    }
+                })
     }
     private fun AcceptRequest(status: String,  consultationRequestVO: ConsulationRequestVO){
         var doctorVo = DoctorVO(

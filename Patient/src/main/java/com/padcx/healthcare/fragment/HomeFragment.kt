@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import com.padcx.healthcare.R
 import com.padcx.healthcare.activities.CaseSummaryActivity
 import com.padcx.healthcare.activities.ChatRoomActivity
@@ -18,6 +19,7 @@ import com.padcx.healthcare.mvp.presenter.Impl.HomePresenterImpl
 import com.padcx.healthcare.mvp.view.HomeView
 import com.padcx.shared.activities.Basefragment
 import com.padcx.shared.data.vo.ConsulationRequestVO
+import com.padcx.shared.data.vo.DoctorVO
 import com.padcx.shared.data.vo.RecentlyDoctorVO
 import com.padcx.shared.data.vo.SpecialitiesVO
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -123,7 +125,9 @@ class HomeFragment :Basefragment() , HomeView {
         }
 
         view.confirm_btn.setOnClickListener {
-            startActivity(  activity?.applicationContext?.let{ CaseSummaryActivity.newIntent(it, specialitiesVO.id)})
+            var doctorVO = DoctorVO()
+            var mdoctorVO=  Gson().toJson(doctorVO)
+            startActivity(  activity?.applicationContext?.let{ CaseSummaryActivity.newIntent(it, specialitiesVO.id,mdoctorVO)})
             dialog?.dismiss()
         }
         dialog?.show()
@@ -137,6 +141,27 @@ class HomeFragment :Basefragment() , HomeView {
             mPresenter.statusUpdateForCompleteType(it,consulation_chat_id,consultationRequestVO)
             it.startActivity(ChatRoomActivity.newIntent(it, consulation_chat_id))
         }
+    }
+
+    override fun nextPageToCaseSummaryFromRecentDoctor(recentDoctor: RecentlyDoctorVO) {
+        var doctorVO = DoctorVO(
+                id = recentDoctor.id.toString(),
+                deviceId = recentDoctor.deviceId.toString(),
+                name = recentDoctor.name.toString(),
+                email = recentDoctor.email.toString(),
+                phone = recentDoctor.phone.toString(),
+                photo = recentDoctor.photo.toString(),
+                speciality = recentDoctor.speciality.toString(),
+                degree = recentDoctor.degree.toString(),
+                biography = recentDoctor.biography.toString(),
+                dob =  recentDoctor.dob.toString(),
+                gender = recentDoctor.gender.toString(),
+                experience = recentDoctor.experience.toString(),
+                address = recentDoctor.address.toString()
+        )
+        var mdoctorVO=  Gson().toJson(doctorVO)
+        startActivity(  activity?.applicationContext?.let{
+            CaseSummaryActivity.newIntent(it, recentDoctor.speciality.toString(),mdoctorVO.toString())})
     }
 
 

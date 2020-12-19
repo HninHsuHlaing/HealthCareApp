@@ -52,7 +52,7 @@ class CheckOutPresenterImpl : CheckOutPresenter, AbstractBaseePresenter<CheckOut
                     patientVO,
                     total_price,
                     onSuccess = {}, onFailure = {})
-            mView?.displayConfirmDialog(prescriotionList,deliveryAddressVO,total_price)
+            mView?.displayConfirmDialog(list=prescriotionList,total_price =total_price,address=deliveryAddressVO)
         }
     }
 

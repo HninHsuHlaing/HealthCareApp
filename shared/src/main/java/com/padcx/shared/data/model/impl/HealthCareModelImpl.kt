@@ -69,7 +69,8 @@ object HealthCareModelImpl : HealthCareModel,BaseModel() {
     }
 
     override fun addPatientInfo(patientVO: PatientVO, onSuccess: () -> Unit, onError: (String) -> Unit) {
-        mFirebaseApi.updatePatientData(patientVO, onSuccess = {}, onFailure = { onError(it) })
+       // mFirebaseApi.updatePatientData(patientVO, onSuccess = {}, onFailure = { onError(it) })
+        mFirebaseApi.addOrUpdatePatientData(patientVO, onSuccess = {}, onFailure = {})
     }
 
     ///////For Specilities//////

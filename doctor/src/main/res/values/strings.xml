@@ -1,17 +1,17 @@
 <resources>
     <string-array name="speciality_name_list">
         <item>နှလုံး အထူးကု </item>
-        <item>သွားနှင့် ခံတွင်း </item>
-        <item>အရေပြားနှင့် အလှပရေးရာ </item>
-        <item>နား ၊ နားခေါင်း ၊ လည်ချောင်း </item>
-        <item>အစာအိမ်နှင့် အူလမ်းကြောင်း</item>
-        <item>အသည်းအထူးကု</item>
-        <item>ဦးနှောက်နှင့် အာရုံကြော </item>
-        <item>သားဖွား ၊ မီးယပ် </item>
-        <item>အရိုးအကြော </item>
-        <item>ကလေးကျန်းမာရေး </item>
-        <item>ဓာတ်မှန် </item>
-        <item>ခွဲစိတ် </item>
+        <item>ကလေးအထူးကု </item>
+        <item>သွားဘက်ဆိုင်ရာ</item>
+        <item>နား,နှာခေါင်းလည်းချောင်းဆိုင်ရာ</item>
+        <item>မျက်စိအထူးကု</item>
+        <item>အထွေထွေရောဂါဆိုင်ရာ</item>
+        <item>Internal Medicine </item>
+        <item>အာရုံကြောအထူးကု </item>
+        <item>အဟာရဆိုင်ရာ </item>
+        <item>သားဖွားမီးယပ်အထူးကု </item>
+        <item>မျိုးပွားခြင်းဆိုင်ရာ </item>
+        <item>အရေပြားဆိုင်ရာ </item>
     </string-array>
     <string-array name="medicine_date">
         <item> Days</item>

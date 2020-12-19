@@ -22,6 +22,10 @@ class RecentlyDoctorViewHolder(itemView: View, private val mDelegate: RecentlyDo
                 ImageUtil().showImage(itemView.img_doctor_profile,it, R.drawable.doctor_thumbnail)
             }
 
+            itemView.card_recentdoctor.setOnClickListener {
+                mDelegate.onTapRecentDoctor(data)
+            }
+
         }
     }
 }

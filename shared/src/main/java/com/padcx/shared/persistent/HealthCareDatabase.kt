@@ -19,7 +19,7 @@ import com.padcx.shared.util.DATABASE_NAME
     SpecialitiesVO::class,SpecialquestionVO::class,PrescriptionVO::class,CheckoutVO::class,
     MessageVO::class,RecentlyDoctorVO::class,ConsultatedPatientVO::class
         ],
-    version = 26,
+    version = 29,
     exportSchema = false
 )
 abstract class HealthCareDatabase : RoomDatabase(){

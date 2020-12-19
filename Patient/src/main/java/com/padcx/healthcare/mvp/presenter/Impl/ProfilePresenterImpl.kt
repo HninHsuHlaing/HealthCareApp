@@ -29,6 +29,7 @@ class ProfilePresenterImpl : ProfilePresenter, AbstractBaseePresenter<ProfileVie
         mHealthCareModel.getPatientByEmailFromDB(SessionManager.patient_email.toString())
                 .observe(owner, Observer { patient ->
                     patient?.let {
+                        SessionManager.addPatientInfo(patient)
                         mView?.displayPatientData(patient) }
                 })
     }
@@ -40,7 +41,8 @@ class ProfilePresenterImpl : ProfilePresenter, AbstractBaseePresenter<ProfileVie
             dateofbirth: String,
             height: String,
             comment: String,
-            phone: String
+            phone: String,
+            address: String
     ) {
 
         mHealthCareModel.uploadPhotoToFirebaseStorage(bitmap,
@@ -63,7 +65,8 @@ class ProfilePresenterImpl : ProfilePresenter, AbstractBaseePresenter<ProfileVie
                             dob = dateofbirth,
                             weight = SessionManager.patient_weight.toString(),
                             height = height,
-                            allergic_medicine = comment
+                            allergic_medicine = comment,
+                            perment_address = address
                             // = phone
                     )
                     mHealthCareModel.addPatientInfo(patientVo,onSuccess = {}, onError = {})

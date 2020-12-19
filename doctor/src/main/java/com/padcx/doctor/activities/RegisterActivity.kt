@@ -25,18 +25,18 @@ class RegisterActivity :BaseActivity(),RegisterView {
     lateinit var specilities : String
     lateinit var specilities_name :String
     val specialityTypeList = mutableListOf(
-        "cardiology",
+        "cardiologist",
+        "children",
         "dentist",
-        "dermatology",
-        "ent",
-        "gastroenterology",
-        "hepatology",
-        "neurology",
-        "og",
-        "orthopedics",
-        "pediartics",
-        "radiology",
-        "surgery"
+        "ear,nose",
+        "eye",
+        "general physician",
+        "internal",
+        "neurologist",
+        "nutritionsts",
+        "obstetricians",
+        "reproduction",
+        "skin specialist"
     )
     companion object {
         fun newIntent(context: Context) : Intent {

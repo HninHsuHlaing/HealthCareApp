@@ -23,5 +23,7 @@ data class RecentlyDoctorVO(
     var speciality : String? ="",
     var email: String? ="",
     var deviceId:String? = "",
-    var phone:String? =""
+    var phone:String? ="",
+    var dob : String? = "",
+    var gender: String? = ""
 )

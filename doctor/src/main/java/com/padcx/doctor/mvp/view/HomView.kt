@@ -19,4 +19,9 @@ interface HomView : BaseView{
     fun nextPageChatRoom(consultation_chat_id : String)
     fun nextPagePatientInfo(consultation_request_id : String)
     fun displayPostPoneChooserDialog(consultationRequestVO: ConsulationRequestVO)
+
+    fun displayPatientInfoDialog(consultationChatVO: ConsulationChatVO)
+    fun displayPrescriptionDialog(consultation_chat_id: String, patient_name : String, start_conservation_date : String)
+    fun displayMedicalCommentDialog(consultationChatVO: ConsulationChatVO)
+    fun displayPostponseProcessSuccess()
 }

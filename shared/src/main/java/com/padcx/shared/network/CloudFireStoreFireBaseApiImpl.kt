@@ -912,7 +912,7 @@ object CloudFireStoreFireBaseApiImpl : FirebaseApi {
         }
 
         val consultationChatMap = hashMapOf(
-                "finish_consultation_status" to true,
+                "status" to true,
                 "id" to consultationChatVO.id,
                 "patient_id" to consultationChatVO.patient_id,
                 "doctor_id" to consultationChatVO.doctor_id,

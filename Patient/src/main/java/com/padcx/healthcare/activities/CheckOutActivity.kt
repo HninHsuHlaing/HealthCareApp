@@ -39,7 +39,7 @@ class CheckOutActivity :BaseActivity() , CheckOutView{
     private lateinit var totalPrice : String
     private lateinit var state : String
     private lateinit var township : String
-    private lateinit var address: String
+    private  var address: String = ""
     private var previousPosition : Int = -1
     private lateinit var shippingList : List<String>
 
@@ -83,7 +83,7 @@ class CheckOutActivity :BaseActivity() , CheckOutView{
 
             mConsultationChatVO?.let {
                 mPresenter.onTapCheckout(prescriotionList = prescriptionList,
-                        deliveryAddressVO = address,
+                        deliveryAddressVO = ed_address.text.toString(),
                         doctorVO = it?.doctor,
                         patientVO = it?.patient,
                         total_price = totalPrice
@@ -111,13 +111,16 @@ class CheckOutActivity :BaseActivity() , CheckOutView{
 //        address_rc?.setHasFixedSize(false)
     }
     override fun displayPrescription(list: List<PrescriptionVO>) {
+       // var subtotalamount = 0
         if(list.isNotEmpty()) {
             prescriptionList= list
             adapter.setNewData(list.toMutableList())
             var totalamount : Int =0
             for( item in list)
             {
-                totalamount += item.price.toInt()
+              val  subtotalamount = item.price.toInt() * item.count?.toInt()
+
+                totalamount += subtotalamount
             }
             total_amount.text = "${totalamount} ကျပ်"
             totalPrice =  "${totalamount} ကျပ်"

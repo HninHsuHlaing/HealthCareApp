@@ -16,7 +16,8 @@ class MedicineListViewHolder(itemView: View, private val mDelegate: CheckoutDele
     override fun bindData(data: PrescriptionVO) {
 
         data?.let {
-            itemView.txt_price.text = data.price +" ကျပ်"
+            var subtotal = data.price.toInt() * data.count.toInt()
+            itemView.txt_price.text = subtotal.toString()+" ကျပ်"
             itemView.txt_tablet.text = data.count +" ကတ်"
             itemView.txt_medicinename.text = data.medicine_name
         }

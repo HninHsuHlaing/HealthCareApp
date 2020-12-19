@@ -9,6 +9,7 @@ import com.padcx.healthcare.mvp.view.HomeView
 import com.padcx.healthcare.util.SessionManager
 import com.padcx.shared.data.model.impl.HealthCareModelImpl
 import com.padcx.shared.data.vo.ConsulationRequestVO
+import com.padcx.shared.data.vo.RecentlyDoctorVO
 import com.padcx.shared.data.vo.SpecialitiesVO
 import com.padcx.shared.mvp.presenter.AbstractBaseePresenter
 
@@ -56,8 +57,8 @@ class HomePresenterImpl : HomePresenter, AbstractBaseePresenter<HomeView>() {
                 })
     }
 
-    override fun onTap() {
-
+    override fun onTapRecentDoctor(doctorVO: RecentlyDoctorVO) {
+        mView.nextPageToCaseSummaryFromRecentDoctor(doctorVO)
     }
 
     override fun onTapStarted(

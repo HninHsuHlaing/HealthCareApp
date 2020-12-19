@@ -179,7 +179,7 @@ object SessionManager {
         patient_allergicMedicine = patientVO.allergic_medicine
         patient_weight = patientVO.weight
         patient_bloodPressure = patientVO.blood_pressure
-      //  patient_address =  Gson().toJson(patientVO.address)
+        patient_address =  Gson().toJson(patientVO.perment_address)
        // patient_phone = patientVO.phone
 //        if(patientVO.address.size>0) {
 //            for(item in patientVO.address) {
